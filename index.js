@@ -1,6 +1,6 @@
 var AWS = require('aws-sdk');
 var url = require('url');
-var region = process.env.AWS_DEFAULT_REGION || 'us-east-1';
+var region = process.env.AWS_DEFAULT_REGION || 'eu-west-1';
 var sns = new AWS.SNS({ region: region });
 var s3 = new AWS.S3({ region: region });
 
