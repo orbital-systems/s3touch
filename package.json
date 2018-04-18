@@ -1,5 +1,5 @@
 {
-  "name": "@mapbox/s3touch",
+  "name": "@orbital-systems/s3touch",
   "version": "0.3.0",
   "description": "Trigger S3 event notifications for objects in an s3 bucket",
   "bin": {

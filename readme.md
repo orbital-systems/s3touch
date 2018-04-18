@@ -1,7 +1,12 @@
 s3touch
 -------
 
-![s3touch](https://cloud.githubusercontent.com/assets/515424/9432169/1165077e-49d3-11e5-93ca-5398fd3b018e.jpg)
+### Install
+
+    npm install -g @orbital-systems/s3touch
+
+
+### Usage
 
 Utility to simulate S3 events without actually re-PUTing objects to S3.
 
@@ -19,7 +24,3 @@ Utility to simulate S3 events without actually re-PUTing objects to S3.
 - Looks up SNS topic that is subscribed to the given S3 bucket,
 - Looks up information about `some-object` (size, etag),
 - and sends a simulated S3 event message to the SNS topic already set within the bucket or to the SNS topic explictly sent via the `--topic` flag
-
-### Install
-
-    npm install -g s3touch
