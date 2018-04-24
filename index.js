@@ -43,7 +43,11 @@ function createMessage(bucket, objkey, requesterPays, callback) {
     if (requesterPays) params.RequestPayer = 'requester';
 
     s3.headObject(params, function(err, data) {
-        if (err) return callback(new Error('Could not HEAD object ("'+(err.message||err.statusCode)+'")'));
+        if (err) {
+            console.log('Could not HEAD object ("'+(err.message||err.statusCode)+'")');
+            return;
+        }
+
         var size = parseInt(data.ContentLength, 10);
         var etag = JSON.parse(data.ETag);
         var date = (new Date()).toISOString();
