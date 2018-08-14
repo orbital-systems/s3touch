@@ -18,6 +18,13 @@ if (argv.topic === true) {
     process.exit(1);
 }
 
+if (argv.delay && Number.isNaN(argv.delay)) {
+    console.log('Delay must be numerical (milliseconds)')
+    console.log(s3touch.usage());
+    process.exit(1);
+}
+
+
 function run(err, data) {
     if (err) {
         console.warn(err.toString());
@@ -28,7 +35,14 @@ function run(err, data) {
         s3paths.shift();
     }
     if (s3paths.length) {
-        s3touch.touch(s3paths[0], cache, topic, requesterPays, run);
+        if (argv.delay) {
+            setTimeout(() =>
+                s3touch.touch(s3paths[0], cache, topic, requesterPays, run),
+                Number(argv.delay)
+            );
+        } else {
+            s3touch.touch(s3paths[0], cache, topic, requesterPays, run)
+        }
     }
 }
 

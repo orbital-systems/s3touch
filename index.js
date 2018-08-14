@@ -11,7 +11,7 @@ module.exports.createMessage = createMessage;
 module.exports.list = list;
 
 function usage() {
-    return 'Usage: s3touch <s3 path> [--topic <ARN string>] [--requesterpays]';
+    return 'Usage: s3touch <s3 path> [--topic <ARN string>] [--requesterpays] [--delay]';
 }
 
 function touch(s3path, cache, topic, requesterPays, callback) {
